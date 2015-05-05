@@ -23,7 +23,7 @@ On the null distribution of the precision-recall curve, Lopes and Bontempi, ECML
 ### function pranker
 ##### Description: 
 
-This is the main function of the package (see the documentation on prankerpackage). It takes as input a vector of instance scores of an information retrieval task (higher scores are selected first) and a gold standard vector (non-zero elements represent positive instances). N represents the number of instances and P the number of positives. 
+This is the main function of the package. It takes as input a vector of instance scores of an information retrieval task (higher scores are selected first) and a gold standard vector (non-zero elements represent positive instances). N represents the number of instances and P the number of positives. 
 
 This function returns a list of elements: the first is the obtained AUPRC; the second is a p-value relative to the null hypothesis of random selection; the third is a numeric vector of the mean and variance of the null AUPRC; the fourth is the number of total and positive instances. 
 
@@ -49,7 +49,7 @@ A list of elements: the obtained AUPRC; p-value; a numeric vector of the mean an
 ### function null.params
 ##### Description: 
 
-This function computes the mean and variance of the null (of random selection) AUPRC (average maximum precision), for a given number of total instances (N) and number of positive instances (P). An approximation may be implemented, which is described in the documentation for the function "pranker". 
+This function computes the mean and variance of the null (of random selection) AUPRC (average maximum precision), for a given number of total instances (N) and number of positive instances (P). An approximation may be implemented, described above in the documentation for the function "pranker". 
 
 #####  Usage:
 **null.params**(N, P, approx, approxN)
