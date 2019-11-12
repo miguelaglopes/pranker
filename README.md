@@ -1,8 +1,6 @@
 # pranker
 R package for significancy assessment of the area under the precision and recall curve (AUPRC)
 
-(requires R package Rcpp)
-
 A common problem in information retrieval and machine learning in general is to select positive instances (P) out of a pool of both positive and non-positive instances (N). In this problem, instances are typically scored and ranked (higher scored instances are selected first). When the gold standard is available, selection rankings are commonly assessed with the area under the precision recall curve (AUPRC), plotting precision as a function of recall. This area can be approximated as the average maximum precision for all possible values of recall. This particular version of the AUPRC is adopted here. 
 
 Ideally, positive instances are selected first, resulting in a maximum AUPRC (area under the curve) of 1. This package computes the AUPRC and assigns a p-value to it, relative to the null hypothesis of random selection. 
