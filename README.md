@@ -29,8 +29,6 @@ This function returns a list of elements: the first is the obtained AUPRC; the s
 
 The null AUPRC distribution is obtained by first computing its mean and variance, and then by fitting a beta distribution to these two parameters, additionally to the maximum and the minimum of the distribution (note that while the maximum is 1, the minimum is not). A p-value is then obtained. 
 
-When N and P are large, the AUPRC variance may be too intensive to compute. It requires the covariance matrix of the maximum precision at different points of recall, and an approximation is implemented which skips elements in each row/column in this matrix. These are then interpolated with splines. The optional parameter "approx" defines whether this approximation is used, and the parameter "approxN" (integer) defines the quantity of skipped elements. In particular, only one out of consecutive approxN elements is computed (plus the first and the last in each row of the upper diagonal of the covariance matrix, plus the diagonal).  
-
 Note that if they are available, the mean and variance of the null AUPRC may be given as input (as a numeric vector). These parameters may be computed using the function "null.params" (which takes as input the number of instances and number of positives). If only the AUPRC value is necessary (and not the p-value), it can be computed using the function "auprc.ap". 
 
 #####  Usage:
@@ -40,8 +38,6 @@ Note that if they are available, the mean and variance of the null AUPRC may be 
 * **scores** - numeric vector or matrix of scores. No NA or NULL values allowed. 
 * **y** - the gold standard (numeric vector or matrix, of the same size as "prediction"). Non-zero elements represent positive instances. No NA or NULL values allowed. 
 * **params** - (optional) vector of two numeric elements, the mean (the first) and the variance (the second) of the null AUPRC. If these are given there is no need to compute them. These may be obtained in the function null.params. 
-* **approx** - (optional) Logical, TRUE (default) or FALSE. If TRUE, the covariance spline approximation is used (see function null.params). 
-* **approxN** - (optional) Integer, the parameter of the covariance spline approximation (see above). Default is P/10 (see function null.params).
 
 ##### Output:
 A list of elements: the obtained AUPRC; p-value; a numeric vector of the mean and variance of the null AUPRC; the number of total and positive instances. 
@@ -57,8 +53,6 @@ This function computes the mean and variance of the null (of random selection) A
 #####  Arguments
 * **N** - Integer, number of total instances.  
 * **P** - Integer, number of positive instances. 
-* **approx** - Logical, TRUE (default) or FALSE. If TRUE, the covariance spline approximation is used. 
-* **approxN** - Integer, the parameter of the covariance spline approximation (see above). Default is P/10. 
 
 ##### Output:
 Vector of two numeric elements, the mean (the first) and the variance (the second) of the null AUPRC.
